@@ -1,8 +1,13 @@
-# Let's make a SQL cheatsheet together! 
+# Let's make a Food Trucks App together! 🚛
 
-In the SQL-cheatsheet.md file, you will see several SQL-related terms. Some have been already been defined. Your job is to collaborate with your colleagues to define the rest of the SQL terms in this cheatsheet. 
+We will work as a team of developers to create a Food Trucks App. 
 
-In addition to reviewing your SQL knowledge, in this process you will also practice making and merging Git branches, editing Markdown, submitting a pull request, and reviewing one of your classmates' pull requests. 
+## **Learning Goals**
+By doing this activity together, we will...
+- Practice making and merging Git branches
+- Submitting, reviewing, and approving Pull Requests
+- Collaborating with a team of developers
+- Building API Endpoints with Node, Express & SQL
 
 ## **Workshop Objectives**
 
