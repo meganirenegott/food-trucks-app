@@ -72,7 +72,7 @@ In the `server/src` folder, create a `config.js` file. Your instructor will prov
 
 ---
 
-### 🛠️ 4. Edit the SQL-cheatsheet.md file in your `new-feature` branch
+### 🛠️ 4. Edit the index.js file in your `new-feature` branch
 
 1. You have been assigned an API endpoint. Your task is to:
    - Complete the API endpoint (with either `app.get()` or `app.post()`
