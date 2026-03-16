@@ -26,7 +26,7 @@ app.listen(port, () => {
 // 1. getAllFoodTrucks()
 async function getAllFoodTrucks() {
   // counts total number of rows in food-trucks table
-  const result = await db.query("SELECT COUNT(*) FROM food_trucks;");
+  const result = await db.query("SELECT * FROM food_trucks;");
   return result.rows;
 }
 
