@@ -4,6 +4,30 @@ import Form from "./pages/Form.jsx";
 import "./App.css";
 
 function App() {
+  // set useState
+const [allFoodTrucks, setAllFoodTrucks] = useState([]);
+
+
+  // start with boilerplate fetch request API code
+  // try catch sandwich
+
+const getAllFoodTrucks = async () => {
+  try {
+      `api/get-all-food-trucks`
+    const response = await fetch(`api/get-all-food-trucks`);
+    const data = await response.json();
+    console.log(data);
+    setAllFoodTrucks(data);
+    } catch (error) {
+      console.error('Oopsies! Error fetching data:', error);
+    }
+  };
+  // function to handle state managment
+
+ useEffect(() => {
+    getAllFoodTrucks();
+  }, []);
+
   return (
     <>
       <header>
@@ -14,7 +38,7 @@ function App() {
       </header>
 
       <main>
-        <Routes>
+        <Routes>yncAwait
           <Route path="/" element={<Home />} />
           <Route path="/form" element={<Form />} />
         </Routes>

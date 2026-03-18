@@ -59,10 +59,12 @@ async function getTopRatedFoodTrucks() {
 // 6. getFoodTrucksSortedByRating()
 
 // 7. getFoodTrucksSortedByPrice()
+// async helper function sortedByPrice()
+// variable called result awaiting database query selecting for name, id, and price level out of the data object and returning is orderd by price decending
+// return result.row to be sent back into API call with endpoing /get-food-trucks-sorted-by-price
 
 async function sortedByPrice() {
   const result = await db.query("SELECT name, id, price_level FROM food_trucks ORDER BY price_level DESC");
-  console.log(result.rows);
   return result.rows;
 };
 
@@ -179,7 +181,9 @@ app.get("/get-top-rated-food-trucks", async (req, res) => {
 // 6. GET /get-food-trucks-sorted-by-rating
 
 // 7. GET /get-food-trucks-sorted-by-price
-
+// API get request with fixed endpoint with an async function
+// variable  sortedFoodTruckPrice assigned to await helper function sortedByPrice
+// response in json format with variable sortedFoodTruckPrice being returned
 app.get("/get-food-trucks-sorted-by-price", async (req, res) => {
   const sortedFoodTruckPrice = await sortedByPrice();
   res.json(sortedFoodTruckPrice);
