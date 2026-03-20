@@ -17,6 +17,19 @@ main {
   margin: 0;
   padding: 1rem 2rem;
 }
+.card-container {
+  display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  background-color: rgb(255, 205, 207);
+  gap: 2rem;
+}
+ 
+.food-truck-card {
+  
+  background-color: ghostwhite;
+  gap: 2rem;
+  border-radius: 10px;
+}
 
 nav {
   display: flex;
@@ -76,3 +89,4 @@ form button {
   font-size: 1rem;
   cursor: pointer;
 }
+

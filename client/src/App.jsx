@@ -1,31 +1,51 @@
 import { Link, Routes, Route } from "react-router-dom";
-import FoodTruckCard from "./pages/FoodTruckCard.jsx";
+import Home from "./pages/Home.jsx";
 import Form from "./pages/Form.jsx";
 import "./App.css";
 import { useState, useEffect } from "react";
+import FoodTruckCard from "./components/FoodTruckCard.jsx";
 
 function App() {
   // set useState
-const [allFoodTrucks, setAllFoodTrucks] = useState(null);
+  const [allFoodTrucks, setAllFoodTrucks] = useState(null);
+  const [foodTrucksCount, setFoodTrucksCount] = useState(null);
 
   // start with boilerplate fetch request API code
   // try catch sandwich
 
-const getAllFoodTrucks = async () => {
-  try {
-    const response = await fetch(`/api/get-all-food-trucks`);
-    const data = await response.json();
-    console.log(data, "data from the all food trucks api call");
-    setAllFoodTrucks(data);
+  const getAllFoodTrucks = async () => {
+    try {
+      const response = await fetch(`/api/get-all-food-trucks`);
+      const data = await response.json();
+      setAllFoodTrucks(data);
     } catch (error) {
       console.error('Oopsies! Error fetching data:', error);
     }
   };
   // function to handle state managment
 
- useEffect(() => {
+ 
+  // api endpoint for counter /get-food-trucks-count
+  const getAllFoodTrucksCount = async () => {
+    try {
+      const response = await fetch(`/api/get-food-trucks-count`);
+      const data = await response.json();
+      console.log(data, "food trucks count total");
+      setFoodTrucksCount(data);
+    } catch (error) {
+      console.error('Oopsies! Error fetching data:', error);
+    }
+  };
+    
+
+  useEffect(() => {
     getAllFoodTrucks();
   }, []);
+  
+  useEffect(() => {
+    getAllFoodTrucksCount();
+  }, []);
+
 
   return (
     <>
@@ -36,17 +56,12 @@ const getAllFoodTrucks = async () => {
         </nav>
       </header>
       <main>
-        <Routes>ncAwait
-          <Route path="/" element={<FoodTruckCard />} />
+        <Routes>
+          <Route path="/" element={<Home allFoodTrucks={allFoodTrucks} foodTrucksCount={foodTrucksCount} />} />
           <Route path="/form" element={<Form />} />
         </Routes>
 
-        <div className="card-container">
-        
-          {allFoodTrucks && allFoodTrucks.map((uniqueFoodTruck, index) =>  <FoodTruckCard uniqueFoodTruck={uniqueFoodTruck} key={index} /> )}
-          
-
-        </div>
+       
       </main>
     </>
   );

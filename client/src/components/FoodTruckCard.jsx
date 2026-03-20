@@ -1,12 +1,10 @@
-import "../App.css";
-
 
 
 
 function FoodTruckCard( {uniqueFoodTruck} ) {
   return (
     <>
-      <div className="foodTruck-card">
+      <div className="food-truck-card">
       <h2>{uniqueFoodTruck.name}</h2>
       <p>{uniqueFoodTruck.id}</p>
       <p>{uniqueFoodTruck.current_location}</p>
